@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let userName = prompt("Nhập tên người dùng");
+        let role = prompt("Vai trò");
+        let balance = +prompt("Số dư tài khoản");
+        let cardStatus = prompt("Trạng thái thẻ sinh viên");
+        let lateDays = +prompt("Số ngày quá hạn trả sách");
+
+        switch (role) {
+            case "admin":
+                console.log("Chào Admin, bạn có toàn quyền hệ thống");
+                break;
+            case "student":
+                console.log("Chào sinh viên, bạn có thể mượn sách")
+                break;
+            case "guest":
+                console.log("Chào khách, bạn chỉ có thể đọc tại chỗ")
+                break;
+            default:
+                console.log("Lỗi: Vai trò không hợp lệ!")
+        }
+
+        // if (userName && (role == "student" || role == "admin") && (balance > 0 && cardStatus == true)) {
+        //     console.log("ĐƯỢC PHÉP MƯỢN SÁCH");
+        // } else {
+        //     console.log("YÊU CẦU BỊ TỪ CHỐI");
+        // }
+
+        // if (!userName) {
+        //     console.log("YÊU CẦU BỊ TỪ CHỐI, TÊN TRỐNG");
+        // } else if (role != "student" && role != "admin") {
+        //     console.log("YÊU CẦU BỊ TỪ CHỐI, VAI TRÒ KHÔNG HỢP LỆ");
+        // } else if (balance < 0 || cardStatus != true) {
+        //     console.log("YÊU CẦU BỊ TỪ CHỐI, TÀI KHOẢN < 0 HOẶC TRẠNG THÁI THẺ KHÔNG HOẠT ĐỘNG");
+        // } else {
+        //     console.log("ĐƯỢC PHÉP MƯỢN SÁCH");
+        // }
+
+        let message = "YÊU CẦU BỊ TỪ CHỐI";
+        let check = true;
+        if (!userName) {
+            message += ", TÊN BỊ TRỐNG";
+            check = false;
+        }
+        if (role != "student" && role != "admin") {
+            message += ", VAI TRÒ KHÔNG HỢP LỆ";
+            check = false;
+        }
+        if (balance < 0 || cardStatus != "true") {
+            message += ", TÀI KHOẢN < 0 HOẶC TRẠNG THÁI THẺ KHÔNG HOẠT ĐỘNG";
+            check = false;
+        }
+        if (check) {
+            message = "ĐƯỢC PHÉP MƯỢN SÁCH"
+        }
+        //Tính phí phạt
+        let lateFee = 0;
+        if (lateDays <= 0) {
+            console.log("Cảm ơn bạn đã trả đúng hạn");
+        } else if (lateDays <= 5) {
+            lateFee = lateDays * 5000;
+        } else if (lateDays <= 10) {
+            lateFee = lateDays * 10000;
+        } else {
+            lateFee = 200000
+        }
+
+        //Hiển thị kết quả
+        console.log(`
+        --- HỆ THỐNG MƯỢN TRẢ ---
+        Người dùng: ${userName}
+        Quyền hạn: Chào ${role} ${userName}, bạn ${check ? "có" : "không"} thể mượn sách
+        Kết quả mượn: ${message}
+        Tình trạng trả sách: Quá hạn ${lateDays} ngày
+        Tiền phạt: ${lateFee.toLocaleString("vi-VN")} VNĐ
+`);
+
+    </script>
+</body>
+
+</html>

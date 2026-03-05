@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>DOM Methods</h1>
+
+    <script>
+        //Tạo phần tử html
+        let headerElement = document.createElement("h3");
+        let body = document.getElementsByTagName("body");
+        //Thêm nội dung cho phần tử vừa tạo
+        headerElement.innerText = "Nội dung bên trong thẻ vừa tạo";
+        // headerElement.classList.add()
+        console.log(headerElement);
+        //Thêm phần tử vừa tạo vào cuối thẻ body
+        body[0].appendChild(headerElement);
+
+    </script>
+</body>
+
+</html>

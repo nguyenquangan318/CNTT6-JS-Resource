@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let students = ["An", "Hieu", "Dung", "Long", "Linh"];
+        let scores = [8, 9, 7, 8, 9]
+        //forEach
+        // students.forEach((element, index, arr) => {
+        //     console.log("Gia tri phan tu:", element);
+        //     console.log("Chi so phan tu:", index);
+        //     console.log("mang ban dau:", arr);
+        // })
+
+        //map
+        // let newScore = scores.map((element, index) => element/2)
+        // console.log(newScore);
+
+        //filter
+        // let temp = students.filter(element => element.includes("i"));
+        // let goodScore = scores.filter(element => element >= 9);
+        // console.log(temp);
+
+        //some & every
+        // let check = scores.every((element) => element >= 0);
+        // let check = scores.some((element) => element < 0);
+        // console.log(check);
+
+        //find & findIndex
+        // let findStudent = students.find((element) => element === "An");
+        // let findIndexStudent = students.findIndex((element) => element === "rdAn");
+        // console.log(findStudent);
+        // console.log(findIndexStudent);
+
+        //reduce
+        let totalScore = scores.reduce((accumulative, element, index) => {
+            // accumulative += element;
+            // console.log("Gia tri tich luy sau phan tu thu", index);
+            // console.log(accumulative);
+            return accumulative + element;
+        })
+        console.log(totalScore);
+    </script>
+</body>
+
+</html>

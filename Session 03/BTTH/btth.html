@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        //B1: Khởi tạo biến count = 0 đếm số lần nhập mật khẩu
+        let count = 0;
+        //B2: Dùng vòng lặp while với điều kiện là count<3
+        while (count < 3) {
+            //B3: Yêu cầu người dùng nhập mật khẩu
+            let password = prompt("Nhập mật khẩu");
+            //B4: Dùng câu điều kiện kiểm tra giá trị mật khẩu
+            if (password === "admin123") {
+                //B4.1: Nếu đúng thì thoát vòng lặp và in kết quả
+                console.log("Đăng nhập thành công");
+                break;
+            } else {
+                //B4.2: Nếu sai thì tiếp tục lần lặp và tăng count lên 1
+                console.log(`Sai mật khẩu lần ${count + 1}`);
+                count++;
+            }
+        }
+
+        //B5: Nếu đã nhập sai 3 lần thì in kết quả, nếu không thì tiếp tục menu
+        if (count === 3) {
+            console.log("Hệ thống đã bị khóa");
+        } else {
+            do {
+                let choice = +prompt(`
+            Chọn chức năng:
+            1 - Nhập lô sách mới
+            2 - Vẽ sơ đồ kệ sách
+            3 - Thoát
+            `);
+                switch (choice) {
+                    case 1:
+                        //B1: Yêu cầu người dùng nhập số lượng sách
+                        //B2: Dùng vòng lặp for để nhập giá tiền từng quyển
+                        //B3: Trong vòng lặp yêu cầu người dùng nhập giá tiền
+                        //B4: Nếu giá tiền <= 0 thì 
+                        //B5: Nếu không thì cộng vào tổng giá trị lô sách
+                        //B6: In ra tổng giá trị lô sách
+                        break;
+                    case 2:
+
+                        break;
+                    case 3:
+                        console.log("Thoát chương trình");
+                        break;
+                    default:
+                        console.log("Lựa chọn không hợp lệ");
+                        break;
+                }
+            } while (choice != 3)
+        }
+    </script>
+</body>
+
+</html>

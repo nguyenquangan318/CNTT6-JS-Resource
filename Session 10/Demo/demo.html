@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let myObj = {
+            key: "value",
+            key2: "value2"
+        }
+
+        let id = prompt("Nhap vao id");
+        let firstName = prompt("Nhap vao ho");
+        let lastName = prompt("Nhap vao ten");
+
+        let student = {
+            studentId: id,
+            firstName,
+            lastName,
+        }
+        //READ
+        console.log(student.firstName);
+
+        //CREATE
+        student.age = 20;
+        // let input = "age";
+        // console.log(student.age);
+        // console.log(student[input]);
+
+        //UPDATE
+        student.age = 30;
+        console.log(student);
+
+        //DELETE
+        delete student.age;
+        console.log(student);
+
+
+    </script>
+</body>
+
+</html>

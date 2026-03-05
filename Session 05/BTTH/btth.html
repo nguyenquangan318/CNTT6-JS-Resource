@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let choice;
+        let books = ["Nha Gia Kim", "Dac Nhan Tam", "Tuan Lam Viec 4 Gio"];
+        do {
+            choice = +prompt(`
+            --- THƯ VIỆN KHOA HỌC ---
+            1. Xem danh sách
+            2. Nhập sách mới
+            3. Mượn sách (Xóa)
+            4. Sửa tên sách
+            5. Sắp xếp kệ
+            0. Thoát
+            Nhập lựa chọn của bạn`);
+            switch (choice) {
+                case 1:
+                    //Sử dụng vòng lặp để duyệt qua mảng và in từng tên sách
+                    for (const index in books) {
+                        console.log(`${index + 1}. ${books[index]}`);
+                    }
+                    // for (let i = 0; i < books.length; i++) {
+                    //     console.log(`${i + 1}. ${books[i]}`);
+                    // }
+                    break;
+                case 2:
+                    //Yêu cầu nhập 1 tên sách
+                    let newBook = prompt("Nhập tên sách mới");
+                    //Thêm sách vừa nhập vào cuối mảng
+                    books.push(newBook);
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 0:
+                    console.log("Thoát chương trình, hẹn gặp lại");
+                    break;
+                default:
+                    console.log("Lựa chọn không hợp lệ");
+                    break;
+            }
+        } while (choice)
+    </script>
+</body>
+
+</html>

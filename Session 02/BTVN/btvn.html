@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let bookName = prompt("Nhập tên sách").trim().toUpperCase();
+        let bookIndex = +prompt("Nhập số thứ tự của sách");
+
+        let bookId = `LIB - ${bookName} - ${bookIndex}`
+
+        console.log(`Tên sách gốc: ${bookName}
+Mã sách sau chuẩn hóa: ${bookId}`);
+
+    </script>
+</body>
+
+</html>

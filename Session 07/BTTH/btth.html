@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        let names = [];
+        let goals = [];
+        function addPlayer(name, goal) {
+            names.push(name);
+            goals.push(goal);
+            console.log(`Đã thêm cầu thủ -${name}`);
+        }
+
+        const getTotalGoals = function () {
+            let total = 0;
+            if (goals.length === 0) {
+                console.log("không có bàn thắng");
+            } else {
+                for (let i = 0; i < goals.length; i++) {
+                    total += goals[i]
+                }
+                return total
+            }
+        };
+
+        function findMostGoals(goalsArray) {
+            return Math.max(...goalsArray)
+        }
+    </script>
+</body>
+
+</html>

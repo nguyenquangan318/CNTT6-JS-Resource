@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        const squad = [
+            ["Nguyen Van A", 10, "FW"],
+            ["Tran Van B", 5, "MF"],
+            ["Le Van C", 2, "DF"],
+            ["Pham Van D", 12, "FW"],
+            ["Hoang Van E", 0, "GK"],
+            ["Dang Van F", 7, "MF"]
+        ];
+
+        let choice
+        do {
+
+            choice = prompt(`--- QUẢN LÝ ĐỘI BÓNG ---
+
+1. Xem danh sách
+
+2. Tìm kiếm (Find)
+
+3. Lọc vị trí (Filter)
+
+4. Tổng bàn thắng (Reduce)
+
+5. Kiểm tra hiệu suất (Some/Every)
+
+0. Thoát`);
+            switch (choice) {
+                case "1":
+                    squad.forEach(function (element) {
+                        console.log(`${element[0]} ${element[2]}: ${element[1]} ban thang`);
+                    })
+                    break;
+                case "2":
+                    let findSearch = prompt("Nhap ten cau thu can tim");
+                    let find = squad.find(function (player) {
+                        return player[0] === findSearch;
+                    })
+                    if (!find) {
+                        console.log("Khong tim thay");
+                    } else {
+                        console.log("Cau thu la:", find);
+                    }
+                    break;
+                case "3":
+                    let position = prompt("vi tri muon loc");
+                    let filteredPlayers = squad.filter(player => player[2] === position);
+                    if (filteredPlayers.length > 0) {
+                        console.log("Danh sach cau thu da duoc loc la: ", filteredPlayers);
+                    } else {
+                        console.log("Vi tri khong ton tai cau thu nao");
+                    }
+                    break;
+                case "4":
+                    let totalGoal = squad.reduce(function (acc, current) {
+                        return acc + current[1];
+                    }, 0)
+                    console.log("Tong so ban thang la:", totalGoal);
+                    break;
+                case "5":
+                    let check = squad.some(player => player[1] === 0)
+                    if (check) {
+                        console.log("Co cau thu chua ghi ban");
+                    } else {
+                        console.log("Khong co cau thu nao chua ghi ban");
+                    }
+                    // console.log(squad.some(player => player[1] === 0)
+                    //     ? "Co cau thu chua ghi ban"
+                    //     : "Khong co cau thu nao chua ghi ban");
+                    break;
+                case "0":
+                    console.log("thoat");
+                    break;
+                default:
+                    break;
+            }
+        } while (choice != 0)
+
+    </script>
+</body>
+
+</html>
