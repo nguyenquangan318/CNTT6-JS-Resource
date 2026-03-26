@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Danh Sách Sản Phẩm Chợ Tết</h1>
+    <ul id="product-list">
+    </ul>
+    <form id="product-form">
+        <input type="text" id="product-name" placeholder="Ten san phẩm">
+        <input type="number" id="product-price" placeholder="Giá (VND)">
+        <button type="submit" onclick="handleAddProduct(event)">Them San Pham</button>
+    </form>
+
+    <script>
+        // [{"id":1,"name":"Bánh Chưng","price":150000},{"id":2,"name":"Giò La","price":180000}]
+        // localStorage.setItem("products", JSON.stringify(products));
+        // localStorage.removeItem("");
+        // localStorage.clear();
+        let products = JSON.parse(localStorage.getItem("products")) || [];
+        function renderProducts() {
+            let productListElement = document.getElementById("product-list");
+            productListElement.innerHTML = "";
+            products.forEach((product, index, array) => {
+                productListElement.innerHTML += `<li>
+            <div class="product">
+                <p>Tên sản phẩm: ${product.name}</p>
+                <p>Giá sản phẩm: ${product.price}</p>
+                <button>Sửa</button>
+                <button onclick ="handleDeleteProduct(${product.id})">Xóa</button>
+            </div>
+        </li>`;
+            })
+        }
+        function handleAddProduct(event) {
+            event.preventDefault();
+            let nameInputElement = document.getElementById("product-name");
+            let priceInputElement = document.getElementById("product-price");
+            let newProductName = nameInputElement.value;
+            let newProductPrice = +priceInputElement.value;
+            // let newProduct;
+            // if (products.length !== 0) {
+            //     newProduct = {
+            //         id: products[products.length - 1].id + 1,
+            //         name: newProductName,
+            //         price: newProductPrice
+            //     }
+            // } else {
+            //     newProduct = {
+            //         id: 1,
+            //         name: newProductName,
+            //         price: newProductPrice
+            //     }
+            // }
+
+            let newProduct = {
+                id: products.length != 0 ? products[products.length - 1].id + 1 : 1,
+                name: newProductName,
+                price: newProductPrice
+            };
+            products.push(newProduct);
+            localStorage.setItem("products", JSON.stringify(products));
+            renderProducts();
+        }
+        function handleDeleteProduct(id) {
+            // console.log("Xóa sản phẩm", id);
+            products = products.filter((product) => product.id !== id);
+            localStorage.setItem("products", JSON.stringify(products));
+            renderProducts();
+        }
+        renderProducts();
+
+    </script>
+</body>
+
+</html>

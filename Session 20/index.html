@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review 01</title>
+</head>
+
+<body>
+    <!-- Phần thêm mới công việc -->
+    <div>
+        <input type="text" id="todoInput">
+        <input type="date" name="" id="todoDate">
+        <select name="" id="todoStatus">
+            <option value="">Loại công việc</option>
+            <option value="to do">to do</option>
+            <option value="pending">pending</option>
+        </select>
+        <button onclick="addTodo()">Thêm công việc</button>
+    </div><br>
+
+    <!-- Phần tìm kiếm và lọc -->
+    <input type="text" placeholder="Tìm kiếm công việc" id="findInput" oninput="findTodoByName()"> <button onclick="findTodoByName()">Tìm kiếm</button>
+    <select name="" id="">
+        <option value="">Lọc theo loại công việc</option>
+        <option value="">to do</option>
+        <option value="">pending</option>
+    </select>
+
+    <!-- Phần hiển thị công việc -->
+    <h3>Danh sách công việc</h3>
+    <ul id="todoList">
+    </ul>
+
+    <script src="./script.js"></script>
+</body>
+
+</html>
